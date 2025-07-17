@@ -1,0 +1,123 @@
+/* Reset بسيط */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.app-container {
+  background: #fff;
+  width: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+
+  h1 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #222;
+  }
+}
+
+/* Mood Selector */
+
+.mood-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+
+  .mood-item {
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    background: #eee;
+    transition: background 0.3s ease, transform 0.2s ease;
+    user-select: none;
+
+    &:hover {
+      background: #ffd93d;
+      transform: scale(1.2);
+    }
+  }
+}
+
+/* Mood Calendar */
+
+.mood-calendar {
+  text-align: left;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #444;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    .calendar-day {
+      background: #eee;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      }
+
+      .emoji {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .date {
+        font-size: 0.85rem;
+        color: #555;
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .app-container {
+    width: 90vw;
+    padding: 1rem;
+  }
+
+  .mood-selector {
+    gap: 0.5rem;
+
+    .mood-item {
+      font-size: 1.8rem;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+
+  .mood-calendar .calendar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
